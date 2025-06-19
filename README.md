@@ -9,23 +9,23 @@ This contract allows users to send Ether along with their name and a short messa
 ## Contract Overview
 
 # Memo Struct
-
+```
 struct Memo {
     string name;
     string message;
     uint256 timestamp;
     address from;
 }
-
+```
 -> Used to store the name, message, time, and sender's address for each transaction.
 
 ---
 
 # State Variables
-
+```
 Memo[] memos;
 address payable owner;
-
+```
  `memos`: dynamic array that holds all Memo entries. 
  
  `owner`: receives all Ether sent by users.
@@ -33,11 +33,11 @@ address payable owner;
 ---
 
 # Constructor
-
+```
 constructor() {
     owner = payable(msg.sender);
 }
-
+```
  -> Sets the contract deployer as the owner.
 
 ---
@@ -57,9 +57,9 @@ function buyChai(string memory name, string memory message) public payable
 ---
 
 # getMemos Function
-
+```
 function getMemos() public view returns (Memo[] memory)
-
+```
 -> Returns the list of all Memo structs stored so far.
 
 ---
